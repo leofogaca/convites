@@ -324,10 +324,16 @@
       const result = document.getElementById('result');
 
       acceptBtn?.addEventListener('click', ()=>{
-        const stamp = new Date().toLocaleString('pt-BR');
-        result.innerHTML = "💜 <strong>ACEITO!</strong> ("+stamp+")<br>📸 <strong>Tire uma foto desta mensagem e envie para o Leonardo para confirmar.</strong>";
-        localStorage.setItem('proposta_castrolanda_resposta', JSON.stringify({resposta:'ACEITO', quando: stamp}));
-      });
+  const stamp = new Date().toLocaleString('pt-BR');
+  result.innerHTML = `
+    <div style="font-size:30px; line-height:1.4; margin-top:10px; color:#bbf7d0; text-align:center;">
+      💜 <strong>ACEITO!</strong><br>
+      <small style="font-size:18px; color:#a7f3d0;">(${stamp})</small><br><br>
+      📸 <strong>Tire uma foto desta mensagem e envie para o Leonardo para confirmar.</strong>
+    </div>`;
+  localStorage.setItem('proposta_castrolanda_resposta', JSON.stringify({resposta:'ACEITO', quando: stamp}));
+});
+
 
       // Botão “Não aceito” que foge do mouse
       let escapeCount = 0;
